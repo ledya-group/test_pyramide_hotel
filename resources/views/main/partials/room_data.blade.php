@@ -15,7 +15,7 @@
         </p>
 
         <p>
-            <a href="/reserver?room=1" class="btn btn-primary btn-luxe-primary">
+            <a href="/reservation?room=1" class="btn btn-primary btn-luxe-primary">
                 Réserver <i class="ti-angle-right"></i>
             </a>
         </p>
@@ -39,7 +39,7 @@
         </p>
 
         <p>
-            <a href="/reserver?room=4" class="btn btn-primary btn-luxe-primary">
+            <a href="/reservation?room=4" class="btn btn-primary btn-luxe-primary">
                 Réserver <i class="ti-angle-right"></i>
             </a>
         </p>
@@ -58,13 +58,13 @@
 
     <div class="desc" id="junior">
         <h3>Junior</h3>
-        
+
         <p>
             Une Suite performante et bien disposée avec un espace spacieux et particulier accueillant, la Suite Junior offre une élégance dans son sein muni d’une propreté remarquable. Elle a un salon qui vous me à l’aise ne pouvant pas donné un accès direct à la chambre.
         </p>
-        
+
         <p>
-            <a href="/reserver?room=2" class="btn btn-primary btn-luxe-primary">
+            <a href="/reservation?room=2" class="btn btn-primary btn-luxe-primary">
                 Réserver <i class="ti-angle-right"></i>
             </a>
         </p>
@@ -89,7 +89,7 @@
         </p>
 
         <p>
-            <a href="/reserver?room=3" class="btn btn-primary btn-luxe-primary">
+            <a href="/reservation?room=3" class="btn btn-primary btn-luxe-primary">
                 Réserver <i class="ti-angle-right"></i>
             </a>
         </p>
@@ -108,13 +108,13 @@
 
     <div class="desc" id="standard">
         <h3>Standard</h3>
-        
+
         <p>
             Une chambre qui répond à vos besoins avec dans son sein des équipement moderne, elle vous offrent un accès Internet haut débit sans fil gratuit et, au choix, un grand lit pouvant contenir deux personnes.
         </p>
-        
+
         <p>
-            <a href="/reserver?room=5" class="btn btn-primary btn-luxe-primary">
+            <a href="/reservation?room=5" class="btn btn-primary btn-luxe-primary">
                 Réserver <i class="ti-angle-right"></i>
             </a>
         </p>
