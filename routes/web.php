@@ -5,9 +5,8 @@ Route::get('/', function () { return view('main.index'); })->name('home');
 Route::get('chambres', function () { return view('main.rooms'); });
 Route::get('contact', function () { return view('main.contact'); });
 Route::get('services', function () { return view('main.services'); });
-Route::get('reservation', function () { return view('main.reservation'); });
-// Route::get('reservation', 'ReservationsController@create');
-Route::post('reservation', 'ReservationsController@postReservation');
+Route::get('reservation', 'ReservationsController@create');
+Route::post('reservation', 'ReservationsController@store');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
 

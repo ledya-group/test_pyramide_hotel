@@ -32,9 +32,11 @@
     ?>
 
     <form action="/reservation" method="POST" class="col-md-8 col-md-offset-2">
+        {{ csrf_field() }}
+
         <div class="col-md-12">
             <div class="form-group">
-                <select class="form-control" name="title">
+                <select class="form-control" name="room">
                     <option disabled selected>Chambre</option>
 
                     @foreach($rooms as $id => $room)
@@ -72,18 +74,18 @@
         <div class="col-md-12">
             <div class="form-group">
                 <div class="input-group input-daterange">
-                    <input type="text" class="form-control" value="{{ request('checkin')? request('checkin'):'' }}" placeholder="Arrivé" id="checkin">
+                    <input type="text" class="form-control" value="{{ request('checkin')? request('checkin'):'' }}" placeholder="Arrivé" id="checkin" name="checkin">
 
                     <div class="input-group-addon">&nbsp; &mdash;  &nbsp;</div>
 
-                    <input type="text" class="form-control" value="{{ request('checkout')? request('checkout'):'' }}" id="checkout" placeholder="Départ">
+                    <input type="text" class="form-control" value="{{ request('checkout')? request('checkout'):'' }}" id="checkout" placeholder="Départ" name="checkout">
                 </div>
             </div>
         </div>
 
         <div class="col-md-12">
             <div class="form-group">
-                <input type="number" class="form-control" placeholder="Occupant" name="tel">
+                <input type="number" class="form-control" placeholder="Occupant" name="occupant">
             </div>
         </div>
 
@@ -91,7 +93,7 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-group">
-                        <select class="form-control" name="title">
+                        <select class="form-control" name="country">
                             <option disabled selected>Pays</option>
                             <option>Congo - Kinshasa</option>
                             <option>Congo - Brazzaville</option>
@@ -118,13 +120,13 @@
 
         <div class="col-md-12">
             <div class="form-group">
-                <input type="tel" class="form-control" placeholder="Telephone" name="tel">
+                <input type="tel" class="form-control" placeholder="Telephone" name="phone_number">
             </div>
         </div>
 
         <div class="col-md-12">
             <div class="form-group">
-                <textarea name="" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
+                <textarea name="message" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
             </div>
         </div>
         
