@@ -3,15 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Laracasts\Presenter\PresentableTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Reservation extends Model
 {
 	use SoftDeletes;
 	use PresentableTrait;
 
-    protected $guarded = [];
+	protected $guarded = [];
+	
+	protected $dateFormat = 'd/m/Y';
 
     protected $dates = ['checkin', 'checkout'];
 	
