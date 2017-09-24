@@ -37,7 +37,7 @@ class ReservationsController extends Controller
             'room_id' => $data['room'],
             'checkin' => $data['checkin'],
             'checkout' => $data['checkout'],
-            'description' => $data['message']
+            'description' => $data['message'],
             'paid' => $data['message']
         ]);
 

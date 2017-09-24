@@ -1,6 +1,6 @@
-<h3>Subscribe</h3>
+<h3>Souscrire à nos notifications</h3>
 
-<p>Sed cursus ut nibh in semper. Mauris varius et magna in fermentum. </p>
+<p style="text-align: justify;">Vous recevrez nos notifications par E-mail sur tout ce qui concerne nos promotions </p>
 
 <form action="#" id="form-subscribe">
     <div class="form-field">

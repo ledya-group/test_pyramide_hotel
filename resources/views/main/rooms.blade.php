@@ -5,7 +5,7 @@
 
     <div id="featured-hotel" class="fh5co-bg-color">
         <div class="container">
-            
+            <br>
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-title text-center">
