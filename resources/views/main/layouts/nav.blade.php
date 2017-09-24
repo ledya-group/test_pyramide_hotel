@@ -2,12 +2,12 @@
     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
     
     <h1 id="fh5co-logo">
-        <a href="/">Ledya Group &mdash; Pyramide Hotel</a>
+        <a href="/"> <img src="images/logo/logo.png" width="220px"></a>
     </h1>
 
     <nav id="fh5co-menu-wrap" role="navigation">
         <ul class="sf-menu" id="fh5co-primary-menu">
-            <li><a class="active" href="/">Home</a></li>
+                <li><a class="active" href="/">Home</a></li> 
             <li>
                 <a href="/chambres" class="fh5co-sub-ddown">Chambres &nbsp;</a>
 

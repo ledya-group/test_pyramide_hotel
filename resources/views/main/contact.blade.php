@@ -1,7 +1,7 @@
 @extends('main.layouts.app')
 
 @section('content')
-    <div class="fh5co-parallax" style="background-image: url(images/chambres/luxe.jpg); height:300px;" data-stellar-background-ratio="0.5" style="height:300px;">
+    <div class="fh5co-parallax" style="background-image: url(images/banner/banner4.jpg);font-size: small; height:300px;" data-stellar-background-ratio="0.5" style="height:300px;">
         <div class="overlay" style="height:300px;"></div>
         <div class="container">
             <div class="row">
@@ -18,14 +18,22 @@
         <h3>Nos adresses</h3>
 
         <p>
-            Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3978.3640627728028!2d15.251169214760994!3d-4.342586696843714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a6a3197e1c63b0f%3A0xbd6fa66c5682a398!2sLedya+Pyramide+Hotel+Kinshasa!5e0!3m2!1sfr!2sfr!4v1502935598763" 
+                         width="100%" height="300" frameborder="0">
+                        </iframe>   
+                    </div>
+                </div>
+            </div>
         </p>
         
         <ul class="contact-info">
-            <li><i class="ti-map"></i>198 West 21th Street, Suite 721 New York NY 10016</li>
-            <li><i class="ti-mobile"></i>+ 1235 2355 98</li>
-            <li><i class="ti-envelope"></i><a href="#">info@yoursite.com</a></li>
-            <li><i class="ti-home"></i><a href="#">www.yoursite.com</a></li>
+            <li><i class="ti-map"></i> 35 Avenue Nguma , Macampagne, Kinshasa</li>
+            <li><i class="ti-mobile"></i>+243 820005454 ; 82005464</li>
+            <li><i class="ti-envelope"></i><a href="#">info@pyramide-hotel.com</a></li>
+            <li><i class="ti-home"></i><a href="#">www.pyramide-hotel.com</a></li>
         </ul>
     </div>
 

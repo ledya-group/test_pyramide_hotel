@@ -30,3 +30,6 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
+
+	<!--Recaptcha-->
+	<script src="https://www.google.com/recaptcha/api.js"></script>
