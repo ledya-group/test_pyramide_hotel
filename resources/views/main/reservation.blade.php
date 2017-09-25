@@ -31,20 +31,16 @@
         ];
     ?>
 
-<<<<<<< HEAD
-    <form action="/reservation" method="POST" class="col-md-8 col-md-offset-2" id="recaptcha">
-=======
     <form action="/reservation" method="POST" class="col-md-8 col-md-offset-2">
         {{ csrf_field() }}
 
->>>>>>> develop
         <div class="col-md-12">
             <div class="form-group">
                 <select class="form-control" name="room">
                     <option disabled selected>Chambre</option>
 
                     @foreach($rooms as $id => $room)
-                        <option {{ (request('room') == $id)? "selected":"" }} value="{{ $id }}">{{ $room }}</option>
+                        <option {{ (request('room_id') == $id)? "selected":"" }} value="{{ $id }}">{{ $room }}</option>
                     @endforeach
                 </select>
             </div>
@@ -361,7 +357,7 @@
             <div class="form-group">
                 <input type="submit" data-sitekey="la_clé_du_site" data-callback='onReCaptchaValid' value="Envoyer les informations" class="btn btn-primary">
 
-                <input type="submit" value="Annuler la reservation" class="btn btn-danger">
+                <a href="{{ route()->home() }}" title="" class="btn btn-danger">
             </div>
         </div>
     </form>

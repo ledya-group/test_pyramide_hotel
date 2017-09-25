@@ -7,9 +7,9 @@
         </div>
 
         <form action="{{ route('rooms.store') }}" method="POST">
-            <div class="card-block">
-                {{ csrf_field() }}
+            {{ csrf_field() }}
 
+            <div class="card-block">
                 @if($errors->count())
                     <div class="alert alert-danger">
                         <ul>
