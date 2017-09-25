@@ -16,7 +16,7 @@ class ReservationsController extends Controller
         return view("main.reservation");
     }
 
-    public function store(Request $request, Reservation $reservation, Client $client, Profile $profile, RoomType $roomType)
+    public function store(Request $request, Reservation $reservation, Client $client, Profile $profile, RoomType $roomType, Room $room)
     {
         $request->checkin = \Carbon\Carbon::createFromFormat('d/m/Y', request('checkin') ?? '00/00/0000');
         $request->checkout = \Carbon\Carbon::createFromFormat('d/m/Y', request('checkout') ??'00/00/0000');
@@ -41,19 +41,14 @@ class ReservationsController extends Controller
             // 'occupant' => 'required|numeric',
             'checkin' => 'required|date_format:d/m/Y',
             'checkout' => 'required|date_format:d/m/Y|after_or_equal:checkin',
-            'room' => 'required|exists:room_types',
             'message' => 'nullable|string'
         ]);
 
-        $reseration = new Reservation([
-            'room_id' => $data['room'],
-            'checkin' => $data['checkin'],
-            'checkout' => $data['checkout'],
-            'description' => $data['message'],
-            'paid' => $data['message']
+        $room_type_id = request()->validate([
+            'room_type_id' => 'required|exists:room_types,id',
         ]);
-
-        $room = $room::where('room_type_id', $room_type_id)->open()->firstOrFail();
+            
+        $room = $room->open($room_type_id)->firstOrFail();
         
         $client_id = $client::firstOrCreate([
             'profile_id' => $profile_id
@@ -62,8 +57,10 @@ class ReservationsController extends Controller
             'company' => 'No Company'
         ]);
 
+        // return $request->checkin;
+
         $total_price = $this->calculateTotalPrice(
-            $checkin->diffInDays($checkout),
+            $request->checkin->diffInDays($request->checkout),
             $room->type->base_price
         );
 
@@ -71,8 +68,8 @@ class ReservationsController extends Controller
             "total_price" => $total_price,
             // "room_id" => $room->id,
             "client_id" => $client_id,
-            "checkin" => $request()->checkin,
-            "checkout" => $request()->checkout,
+            "checkin" => $request->checkin,
+            "checkout" => $request->checkout,
             "description" => $reservation['message']
         ]);
 

@@ -36,7 +36,7 @@
 
         <div class="col-md-12">
             <div class="form-group">
-                <select class="form-control" name="room">
+                <select class="form-control" name="room_type_id">
                     <option disabled selected>Chambre</option>
 
                     @foreach($rooms as $id => $room)

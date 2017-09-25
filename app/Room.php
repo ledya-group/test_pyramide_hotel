@@ -65,13 +65,13 @@ class Room extends Model
 		return $freeRooms->get();
 	}
 
-	public function scopeOpen($query)
+	public function scopeOpen($query, $room_type_id)
 	{
 		return $query->whereDoesntHave('reservation', function ($query) {
 			$query->where('checkout', '>', \Carbon\Carbon::today());
 		})->orWhere(function ($query) {
 			$query->doesntHave('reservation');
-		});
+		})->where('room_type_id', $room_type_id);
 	}
 
 	public function getStatus()
