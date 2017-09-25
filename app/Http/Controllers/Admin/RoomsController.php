@@ -14,8 +14,14 @@ class RoomsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Room $room)
     {
+        if (request()->free) {
+            $rooms = $room->available();
+
+            return view('admin.rooms.free', compact('rooms'));
+        }
+
         $room_categories = RoomType::with('rooms.hasNoActiveReservation')
                                 ->withCount('rooms')
                                 ->get();

@@ -23,7 +23,7 @@ class RoomType extends Model
     // to be *allRooms()*
     public function rooms()
     {
-        return $this->hasMany(Room::class, 'room_type_id');
+        return $this->hasMany(Room::class, 'room_type_id')->withoutGlobalScopes();
     }
 
     // To review

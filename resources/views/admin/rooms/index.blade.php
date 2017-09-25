@@ -11,6 +11,11 @@
         Ajouter une categorie de chambre
     </a>
 
+    <a href="{{ route('rooms.index') . '?free=1' }}" class="btn btn-success mb-3">
+        <i class="icon-list"></i>
+        Afficher les chambres libres
+    </a>
+
     @foreach($room_categories as $category)
         <div class="card card-accent-secondary card-default">
             <div class="card-block">
@@ -56,7 +61,8 @@
 
                         <div class="d-flex justify-content-between">
                             <h5 class="mb-1">
-                                @if($room->free())
+                            {{ $room->code }}
+                                {{--  @if($room->free())
                                     {{ $room->code }} <span class="badge badge-success }}">
                                         Libre
                                     </span>
@@ -64,12 +70,12 @@
                                     {{ $room->code }} <span class="badge badge-warning">
                                         Occupé
                                     </span>
-                                @endif
+                                @endif  --}}
                             </h5>
 
                             <div class="btn-group float-right">
                                 @if($room->free())
-                                    <a href="{{ route('special.reservation.create', $room->id) }}" class="btn btn-success mr-2">
+                                    <a href="{{ route('reservations.create') . '?room_id=' . $room->id }}" class="btn btn-success mr-2">
                                         Ajouter un occupant
                                     </a>
                                 @endif
@@ -88,7 +94,7 @@
                             {{ $room->description }}
                         </p>
 
-                        <small>Donec id elit non mi porta.</small>
+                        <small>Aucune description disponible.</small>
                     </li>
                 @endforeach
 

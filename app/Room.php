@@ -31,13 +31,17 @@ class Room extends Model
 	public function reservation()
 	{
 		return $this->hasMany(Reservation::class)
+			// ->limit(1)
+			->orderBy('id', 'desc')
 			->withoutGlobalScopes();
 	}
 
 	public function hasNoActiveReservation()
 	{
 		return $this->hasMany(Reservation::class)
-			->withoutGlobalScopes();
+			->orderBy('id', 'desc')
+			->limit(1)
+			;
 	}
 
 	public function getPriceAttribute()
@@ -59,6 +63,15 @@ class Room extends Model
 		});
 
 		return $freeRooms->get();
+	}
+
+	public function scopeOpen($query)
+	{
+		return $query->whereDoesntHave('reservation', function ($query) {
+			$query->where('checkout', '>', \Carbon\Carbon::today());
+		})->orWhere(function ($query) {
+			$query->doesntHave('reservation');
+		});
 	}
 
 	public function getStatus()
@@ -100,7 +113,10 @@ class Room extends Model
 
 	public function free()
 	{
-		// return !! $this->countable != 0;
-		return $this->free;
+		// if($this->reservation->count() == 0) {
+		// 	return true;
+		// }
+
+		return true;
 	}
 }

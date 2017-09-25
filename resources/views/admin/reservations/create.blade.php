@@ -13,10 +13,10 @@
                 <div class="form-group">
                     <label for="room">Chambres disponibles</label>
                     <select required class="form-control" name="room_id">
-                        <option>Selectionner une chambre</option>
+                        <option disabled selected>Selectionner une chambre</option>
 
                         @foreach($rooms as $room)
-                            <option value="{{ $room->id }}">
+                            <option value="{{ $room->id }}" {{ ($room_id == $room->id)? "selected":"" }}>
                                 {{ $room->type->name }} - {{ $room->code }} <strong>{{ $room->type->base_price }}/jour</strong>
                             </option>
                         @endforeach

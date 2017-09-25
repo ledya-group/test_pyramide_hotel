@@ -26,7 +26,7 @@
         </p>
 
         <p>
-            <a href="/reserver?room=4" class="btn btn-primary btn-luxe-primary">
+            <a href="/reservation?room=4" class="btn btn-primary btn-luxe-primary">
                 Réserver <i class="ti-angle-right"></i>
             </a>
         </p>
@@ -58,7 +58,7 @@
         </p>
         
         <p>
-            <a href="/reserver?room=2" class="btn btn-primary btn-luxe-primary">
+            <a href="/reservation?room=2" class="btn btn-primary btn-luxe-primary">
                 Réserver <i class="ti-angle-right"></i>
             </a>
         </p>
@@ -90,7 +90,7 @@
         </p>
 
         <p>
-            <a href="/reserver?room=3" class="btn btn-primary btn-luxe-primary">
+            <a href="/reservation?room=3" class="btn btn-primary btn-luxe-primary">
                 Réserver <i class="ti-angle-right"></i>
             </a>
         </p>
@@ -122,7 +122,7 @@
         </p>
         
         <p>
-            <a href="/reserver?room=5" class="btn btn-primary btn-luxe-primary">
+            <a href="/reservation?room=5" class="btn btn-primary btn-luxe-primary">
                 Réserver <i class="ti-angle-right"></i>
             </a>
         </p>
