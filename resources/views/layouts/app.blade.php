@@ -29,7 +29,7 @@
     <div id="app" class="app header-fixed">
         <header class="app-header navbar">
             <a class="navbar-brand" href="#" style="background-image:none"> 
-                <img src="images/logo/logo.png">Pyramide Hotel
+                Pyramide Hotel  
             </a>
         </header>
 
