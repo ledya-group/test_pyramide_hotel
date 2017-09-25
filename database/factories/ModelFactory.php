@@ -74,7 +74,7 @@ $factory->define(App\Reservation::class, function (Faker\Generator $faker) {
         'client_id' => $client->id,
         'room_id' => $room->id,
         'total_price' => $total_price,
-        'payed' => $payed,
+        'paid' => $payed,
         'checkin' => $checkin,
         'checkout' => $checkout,
     ];
@@ -96,6 +96,9 @@ $factory->define(App\Profile::class, function (Faker\Generator $faker) {
         'last_name' => $faker->lastName,
         'email' => $faker->unique()->safeEmail,
         'address' => $faker->address,
+        'title' => $faker->title,
+        'country' => $faker->country,
+        // 'town' => $faker->town,
         'phone_number' => $faker->e164PhoneNumber
     ];
 });

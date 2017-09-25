@@ -18,7 +18,7 @@ class CreateReservationsTable extends Migration
 	        $table->unsignedInteger('room_id');
 	        $table->unsignedInteger('client_id');
 	        $table->float('total_price');
-	        $table->float('payed')->nullable();
+	        $table->float('paid')->nullable();
 	        $table->date('checkin');
 	        $table->date('checkout');
 	        $table->text('description')->nullable();

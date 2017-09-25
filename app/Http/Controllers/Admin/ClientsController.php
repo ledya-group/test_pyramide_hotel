@@ -18,7 +18,7 @@ class ClientsController extends Controller
     public function index()
     {
         $clients = Reservation::with('client.profile')
-            ->active()
+            // ->active()
             ->get()
             ->pluck('client');
 

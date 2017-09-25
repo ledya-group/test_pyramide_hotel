@@ -4,9 +4,9 @@ namespace App\Presenters;
 use Laracasts\Presenter\Presenter;
 
 class Reservation extends Presenter {
-    public function adm()
+    public function toPay()
     {
-        return $this->total_price - $this->payed;
+        return $this->total_price - $this->paid;
     }
 
     public function creationDate()

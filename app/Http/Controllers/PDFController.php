@@ -10,10 +10,10 @@ class PDFController extends Controller
 {
     public function download(Reservation $reservation)
     {
-        // $pdf = PDF::loadView('home', compact('reservation'));
+        // $pdf = PDF::loadView('pdf.invoice', compact('reservation'));
         
         // return $pdf->download('invoice.pdf');
 
-        return view('home', compact('reservation'));
+        return view('pdf.invoice', compact('reservation'));
     }
 }
