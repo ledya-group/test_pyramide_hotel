@@ -357,7 +357,7 @@
             <div class="form-group">
                 <input type="submit" data-sitekey="la_clé_du_site" data-callback='onReCaptchaValid' value="Envoyer les informations" class="btn btn-primary">
 
-                <a href="{{ route('home') }}" title="" class="btn btn-danger">
+                {{--  <a href="{{ route('home') }}" title="" class="btn btn-danger">  --}}
             </div>
         </div>
     </form>
