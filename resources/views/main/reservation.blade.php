@@ -61,13 +61,13 @@
 
         <div class="col-md-12">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Prenom" name="firstname">
+                <input type="text" class="form-control" placeholder="Prenom" name="first_name">
             </div>
         </div>
 
         <div class="col-md-12">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nom" name="lastname">
+                <input type="text" class="form-control" placeholder="Nom" name="last_name">
             </div>
         </div>
 
