@@ -1,14 +1,14 @@
 <aside id="fh5co-hero" class="js-fullheight">
     <div class="flexslider js-fullheight">
         <ul class="slides">
-            <li style="background-image: url({{ asset("images/banner/banner1.jpg") }});">
+            <li style="background-image: url({{ asset("images/banner/banner6.jpg") }});">
             <div class="overlay-gradient"></div>
             <div class="container">
                 <div class="col-md-12 col-md-offset-0 text-center slider-text">
                     <div class="slider-text-inner js-fullheight">
                         <div class="desc">
                             <p><span>BIENVENUE CHES LEDYA PYRAMIDE</span></p>
-                            <h2>Vivez le confort dans la Discretion</h2>
+                            <h2>Vivez le confort dans la discretion</h2>
                             <p>
                                 <a href="/reservation" class="btn btn-primary btn-lg">Reservation imédiate</a>
                             </p>
@@ -17,7 +17,10 @@
                 </div>
             </div>
             </li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> front-end
             <li style="background-image: url({{ asset("images/chambres/presidentielle/presid1.jpg") }});">
                 <div class="overlay-gradient"></div>
                 <div class="container">
@@ -34,7 +37,10 @@
                     </div>
                 </div>
             </li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> front-end
             <li style="background-image: url({{ asset("images/chambres/luxe/luxe1.jpg") }});">
                 <div class="overlay-gradient"></div>
                 <div class="container">
@@ -51,7 +57,10 @@
                     </div>
                 </div>
             </li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> front-end
             <li style="background-image: url({{ asset("images/chambres/junior/junior1.jpg") }});">
                 <div class="overlay-gradient"></div>
                 <div class="container">
@@ -68,7 +77,10 @@
                     </div>
                 </div>
             </li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> front-end
             <li style="background-image: url({{ asset("images/chambres/prestige/prest1.jpg") }});">
                 <div class="overlay-gradient"></div>
                 <div class="container">

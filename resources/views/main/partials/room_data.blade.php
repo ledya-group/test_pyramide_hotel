@@ -158,3 +158,33 @@
         </p>
     </div>
 </div>
+<div class="feature-full-1col">
+    <div class="image" style="background-image: url(images/chambres/presidentielle/presid2.jpg);">
+        <div class="descrip text-center">
+            <p>
+                <small>A partir de</small>
+                <span>$250/night</span>
+            </p>
+        </div>
+    </div>
+    <div class="desc" id="presidentielle">
+        <h3>Présidentielle</h3>
+
+        <p  style="text-align: justify;">
+            La suite a tout ce qu’ une chambre présidentielle exige par son design élégant et mobilier raffiné qui sont les seuls mots de notre sublime suite présidentielle, également la plus spacieuse et la plus luxueuse. Dotée d’une chambre spacieuse, D’une superbe baignoire pouvant être transformée en Jacuzzi qui vous met dans une grande relaxation. Elle est dotée aussi d’un grand lit « King » paré de linge en coton et elle abrite également une cuisine classe qui vous permet de faire ce que vous désiriez manger, un salon qui qui vous permet de rester avec vous visiteurs tout en gardant vos intimes personnel, un bureau qui vous permet de travailler dans une grande tranquillité.
+            <h4>Les Services disponibles</h4>    
+        <ul>
+            <li>Connexion Wi-Fi Gratuite avec haut débit.</li>
+            <li>Accès salle de sport</li>
+            <li>Accès à la piscine</li>
+            <li>Un Petit Déjeuner continental</li>
+        </ul>
+        </p>
+
+        <p>
+            <a href="/reservation" class="btn btn-primary btn-luxe-primary">
+                Réserver <i class="ti-angle-right"></i>
+            </a>
+        </p>
+    </div>
+</div>

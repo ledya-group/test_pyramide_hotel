@@ -45,8 +45,12 @@ class ReservationsController extends Controller
             'message' => 'nullable|string'
         ]);
 
-        $room_type_id = request()->validate([
-            'room' => 'required|exists:room_types,id',
+        $reseration = new Reservation([
+            'room_id' => $data['room'],
+            'checkin' => $data['checkin'],
+            'checkout' => $data['checkout'],
+            'description' => $data['message'],
+            'paid' => $data['message']
         ]);
 
         $room = $room::where('room_type_id', $room_type_id)->open()->firstOrFail();
