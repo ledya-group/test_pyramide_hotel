@@ -17,10 +17,6 @@
                 </div>
             </div>
             </li>
-<<<<<<< HEAD
-
-=======
->>>>>>> front-end
             <li style="background-image: url({{ asset("images/chambres/presidentielle/presid1.jpg") }});">
                 <div class="overlay-gradient"></div>
                 <div class="container">
@@ -37,10 +33,6 @@
                     </div>
                 </div>
             </li>
-<<<<<<< HEAD
-
-=======
->>>>>>> front-end
             <li style="background-image: url({{ asset("images/chambres/luxe/luxe1.jpg") }});">
                 <div class="overlay-gradient"></div>
                 <div class="container">
@@ -57,10 +49,6 @@
                     </div>
                 </div>
             </li>
-<<<<<<< HEAD
-
-=======
->>>>>>> front-end
             <li style="background-image: url({{ asset("images/chambres/junior/junior1.jpg") }});">
                 <div class="overlay-gradient"></div>
                 <div class="container">
@@ -77,10 +65,6 @@
                     </div>
                 </div>
             </li>
-<<<<<<< HEAD
-
-=======
->>>>>>> front-end
             <li style="background-image: url({{ asset("images/chambres/prestige/prest1.jpg") }});">
                 <div class="overlay-gradient"></div>
                 <div class="container">
