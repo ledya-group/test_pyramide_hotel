@@ -74,11 +74,11 @@
         <div class="col-md-12">
             <div class="form-group">
                 <div class="input-group input-daterange">
-                    <input type="text" class="form-control" value="{{ request('checkin')? request('checkin'):'' }}" placeholder="Arrivé" id="checkin" name="checkin">
+                    <input type="text" class="form-control" value="{{ request('checkin')??'' }}" placeholder="Arrivé" id="checkin" name="checkin">
 
                     <div class="input-group-addon">&nbsp; &mdash;  &nbsp;</div>
 
-                    <input type="text" class="form-control" value="{{ request('checkout')? request('checkout'):'' }}" id="checkout" placeholder="Départ" name="checkout">
+                    <input type="text" class="form-control" value="{{ request('checkout')??'' }}" id="checkout" placeholder="Départ" name="checkout">
                 </div>
             </div>
         </div>
@@ -357,7 +357,7 @@
             <div class="form-group">
                 <input type="submit" data-sitekey="la_clé_du_site" data-callback='onReCaptchaValid' value="Envoyer les informations" class="btn btn-primary">
 
-                <a href="{{ route()->home() }}" title="" class="btn btn-danger">
+                <a href="{{ route('home') }}" title="" class="btn btn-danger">
             </div>
         </div>
     </form>
