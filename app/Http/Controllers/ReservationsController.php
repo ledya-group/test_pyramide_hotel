@@ -34,7 +34,7 @@ class ReservationsController extends Controller
 
         $profile_id = ($profile::firstOrCreate([
             'email' => $client_profile['email'],
-            'first_name' => $client_profile['firstname'],
+            'first_name' => $client_profile['first_name'],
         ], $client_profile))->id;
 
         $reservation = request()->validate([
