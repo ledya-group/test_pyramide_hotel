@@ -27,7 +27,7 @@
                     <thead>
                         <tr>
                             <th>Nom complet</th>
-                            <th>Reservation</th>
+                            <th>Status <span class="badge badge-info">Bientot</span></th>
                         </tr>
                     </thead>
 

@@ -20,8 +20,19 @@ class RoomType extends Model
         });
     }
 
+    // to be *allRooms()*
     public function rooms()
     {
-        return $this->hasMany(Room::class, 'room_type_id');
+        return $this->hasMany(Room::class, 'room_type_id')->withoutGlobalScopes();
     }
+
+    // To review
+    // public function freeRooms()
+    // {
+    //     return $this->rooms->whereDoesntHave('reservation', function ($query) {
+	// 		$query->where('checkout', '>', \Carbon\Carbon::today());
+	// 	})->orWhere(function ($query) {
+	// 		$query->doesntHave('reservation');
+	// 	});
+    // }
 }

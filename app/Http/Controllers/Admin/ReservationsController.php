@@ -36,10 +36,17 @@ class ReservationsController extends Controller
     public function create(Room $room)
     {
         $rooms = $room->available();
-
         $clients = Client::all();
+        
+        if(!empty(request()->room_id)) {
+            $room_id = request()->room_id;
+            
+            return view('admin.reservations.create', compact('clients', 'rooms', 'room_id'));
+        } else {
+            return view('admin.reservations.create', compact('clients', 'rooms'));
+        }
 
-        return view('admin.reservations.create', compact('clients', 'rooms'));
+
     }
 
     /**
@@ -84,7 +91,7 @@ class ReservationsController extends Controller
 
         ]);
 
-        $profile = $profile->firstOrCreate([
+        $profile = $profile->firstOrCreate(['email' => $request->email],[
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'middle_name' => $request->middle_name,

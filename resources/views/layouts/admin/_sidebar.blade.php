@@ -36,13 +36,13 @@
                 <ul class="nav-dropdown-items">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('rooms.index') }}">
-                            <i class="icon-list"></i> Liste de chambres
+                            <i class="icon-list"></i> Toutes de chambres
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('rooms.create') }}">
-                            <i class="icon-plus"></i> Ajouter une chambre
+                        <a class="nav-link" href="{{ route('rooms.index') . '?free=1' }}">
+                            <i class="icon-list"></i> Chambres libres
                         </a>
                     </li>
                 </ul>

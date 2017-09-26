@@ -31,7 +31,17 @@ class Room extends Model
 	public function reservation()
 	{
 		return $this->hasMany(Reservation::class)
+			// ->limit(1)
+			->orderBy('id', 'desc')
 			->withoutGlobalScopes();
+	}
+
+	public function hasNoActiveReservation()
+	{
+		return $this->hasMany(Reservation::class)
+			->orderBy('id', 'desc')
+			->limit(1)
+			;
 	}
 
 	public function getPriceAttribute()
@@ -55,11 +65,20 @@ class Room extends Model
 		return $freeRooms->get();
 	}
 
+	public function scopeOpen($query, $room_type_id)
+	{
+		return $query->whereDoesntHave('reservation', function ($query) {
+			$query->where('checkout', '>', \Carbon\Carbon::today());
+		})->orWhere(function ($query) {
+			$query->doesntHave('reservation');
+		})->where('room_type_id', $room_type_id);
+	}
+
 	public function getStatus()
 	{
 		$data = [];
 
-		switch($this->free) {
+		switch($this->free()) {
 			case false:
 				$data = [
 					'level' => 'danger',
@@ -94,16 +113,10 @@ class Room extends Model
 
 	public function free()
 	{
-		return !! $this->whereId($this->id)
-			->where(function ($query) {
-				$query->whereDoesntHave('reservation', function ($query) {
-					$query->where('checkout', '>', \Carbon\Carbon::today());
-					// $query->where('checkin', '<=', \Carbon\Carbon::today());
-				});
-				
-				$query->orWhere(function ($query) {
-					$query->doesntHave('reservation');
-				});				
-			})->with('reservation')->get()->count();
+		// if($this->reservation->count() == 0) {
+		// 	return true;
+		// }
+
+		return true;
 	}
 }

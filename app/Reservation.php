@@ -59,4 +59,15 @@ class Reservation extends Model
 
 		return $query;
 	}
+
+	public function isNoActive()
+	{
+		$today = \Carbon\Carbon::today();
+
+		if ((($this->checkin < $today) && ($this->checkout < $today))or (($this->checkin < $today) && ($this->checkout < $today))) {
+			return true;
+		}
+
+		return false;
+	}
 }

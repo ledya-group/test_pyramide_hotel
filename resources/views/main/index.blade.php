@@ -35,7 +35,7 @@
                             </div>
                         </div>
 
-                        <button style="border:none" class="a-col action">
+                        <button style="border:none"  type="submit" class="a-col action">
                             <a href="#">
                                 <span>Vérifier la</span>
                                 Disponibilité
