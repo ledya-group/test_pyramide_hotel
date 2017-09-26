@@ -63,7 +63,7 @@
 </div>
 
 <div class="feature-full-1col">
-    <div class="image" style="background-image: url(images/chambres/junior/junior1.jpg);">
+    <div class="image" style="background-image: url(images/chambres/junior/junior2.jpg);">
         <div class="descrip text-center">
             <p>
                 <small>A partir de</small>
