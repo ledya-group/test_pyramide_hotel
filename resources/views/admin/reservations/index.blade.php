@@ -37,7 +37,7 @@
                         <tr>
                             <td>{{ $reservation->room->code }}</td>
 
-                            <td>{{ optional($reservation->client->present())->fullName }}</td>
+                            <td>{{ optional(optional($reservation->client)->present())->fullName }}</td>
 
                             <td>{{ optional($reservation->present())->dateIn }}</td>
 
