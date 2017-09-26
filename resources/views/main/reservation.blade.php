@@ -31,20 +31,16 @@
         ];
     ?>
 
-<<<<<<< HEAD
-    <form action="/reservation" method="POST" class="col-md-8 col-md-offset-2" id="recaptcha">
-=======
     <form action="/reservation" method="POST" class="col-md-8 col-md-offset-2">
         {{ csrf_field() }}
 
->>>>>>> develop
         <div class="col-md-12">
             <div class="form-group">
-                <select class="form-control" name="room">
+                <select class="form-control" name="room_type_id">
                     <option disabled selected>Chambre</option>
 
                     @foreach($rooms as $id => $room)
-                        <option {{ (request('room') == $id)? "selected":"" }} value="{{ $id }}">{{ $room }}</option>
+                        <option {{ (request('room_id') == $id)? "selected":"" }} value="{{ $id }}">{{ $room }}</option>
                     @endforeach
                 </select>
             </div>
@@ -65,24 +61,24 @@
 
         <div class="col-md-12">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Prenom" name="firstname">
+                <input type="text" class="form-control" placeholder="Prenom" name="first_name">
             </div>
         </div>
 
         <div class="col-md-12">
             <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nom" name="lastname">
+                <input type="text" class="form-control" placeholder="Nom" name="last_name">
             </div>
         </div>
 
         <div class="col-md-12">
             <div class="form-group">
                 <div class="input-group input-daterange">
-                    <input type="text" class="form-control" value="{{ request('checkin')? request('checkin'):'' }}" placeholder="Arrivé" id="checkin" name="checkin">
+                    <input type="text" class="form-control" value="{{ request('checkin')??'' }}" placeholder="Arrivé" id="checkin" name="checkin">
 
                     <div class="input-group-addon">&nbsp; &mdash;  &nbsp;</div>
 
-                    <input type="text" class="form-control" value="{{ request('checkout')? request('checkout'):'' }}" id="checkout" placeholder="Départ" name="checkout">
+                    <input type="text" class="form-control" value="{{ request('checkout')??'' }}" id="checkout" placeholder="Départ" name="checkout">
                 </div>
             </div>
         </div>
@@ -361,7 +357,7 @@
             <div class="form-group">
                 <input type="submit" data-sitekey="la_clé_du_site" data-callback='onReCaptchaValid' value="Envoyer les informations" class="btn btn-primary">
 
-                <input type="submit" value="Annuler la reservation" class="btn btn-danger">
+                {{--  <a href="{{ route('home') }}" title="" class="btn btn-danger">  --}}
             </div>
         </div>
     </form>

@@ -17,7 +17,7 @@ class CreateRoomsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('room_type_id');
 	        $table->string('code');
-	        $table->boolean('free');
+	        $table->boolean('free')->default(true);
 	        $table->integer('max_occupancy');
 	        $table->text('description')->nullable();
             $table->softDeletes();

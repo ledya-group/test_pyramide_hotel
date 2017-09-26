@@ -28,7 +28,7 @@
                         <tr>
                             <th>Nom complet</th>
                             <th>Job title</th>
-                            <th>Last connection</th>
+                            {{--  <th>Last connection</th>  --}}
                             <th></th>
                         </tr>
                     </thead>
@@ -42,15 +42,15 @@
                                 <td>
                                     {{ $agent->present()->jobTitle }}
                                 </td>
-                                <td>
-                                    {{-- {{ $agent->present()->jobTitle }} --}}
-                                </td>
+                                
+                                {{--  <td></td>  --}}
+
                                 <td>
                                     <a href="{{ route('agents.edit', $agent->id) }}" class="btn btn-primary btn-sm mr-1">
-                                        <i class="icon-pencil"></i>
+                                        <i class="icon-pencil"></i> Modifier
                                     </a>
                                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#roomDestroyModal" data-room-id="{{ $agent->id }}">
-                                        <i class="icon-trash"></i>
+                                        <i class="icon-trash"></i> Supprimer
                                     </button>
                                 </td>
                             </tr>

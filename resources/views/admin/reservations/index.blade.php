@@ -20,10 +20,11 @@
                 <thead>
                     <tr>
                         <th>Chambre</th>
-                        <th>Date IN</th>
-                        <th>Date OUT</th>
-                        <th>Nombre jours</th>
-                        <th>Coût par jour</th>
+                        <th>Client</th>
+                        <th>Arrivé</th>
+                        <th>Départ</th>
+                        <th>Days</th>
+                        <th>$/Jours</th>
                         <th>Total</th>
                         <th>Payé</th>
                         <th>Reste</th>
@@ -36,6 +37,8 @@
                         <tr>
                             <td>{{ $reservation->room->code }}</td>
 
+                            <td>{{ $reservation->client->present()->fullName }}</td>
+
                             <td>{{ $reservation->present()->dateIn }}</td>
 
                             <td>{{ $reservation->present()->dateOut }}</td>
@@ -46,7 +49,7 @@
 
                             <td>{{ $reservation->total_price }}</td>
 
-                            <td>{{ $reservation->payed }}</td>
+                            <td>{{ $reservation->paid }}</td>
 
                             <td>{{ $reservation->present()->toPay }}</td>
 
