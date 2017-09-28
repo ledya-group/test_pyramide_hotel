@@ -85,13 +85,13 @@
 				<table class="invoice_head center no_border">
 					<tr>
 						<td class="logo text-center">
-							LOGO
+							<strong><img src="images/logo/logo.png"> LEDYA PYRAMIDE HOTEL</strong>
 						</td>
 					</tr>
 
 					<tr>
 						<td class="invoice_head__title">
-							<h1>FACTURE no. XXXX/YYYY</h1>
+							<h1>FACTURE no. {{ $reservation->room->code }} /{{ \Carbon\Carbon::now()->format('d/m/Y') }}</h1>
 						</td>
 					</tr>
 				</table>

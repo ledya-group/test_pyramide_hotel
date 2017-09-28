@@ -2,7 +2,7 @@
     <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
     
     <h1 id="fh5co-logo">
-        <a href="/"> <img src="images/logo/logo2.png">Ledya Pyramide Hotel</a>
+        <a href="/"> <img src="images/logo/logo.png">Ledya Pyramide Hotel</a>
     </h1>
 
     <nav id="fh5co-menu-wrap" role="navigation">
