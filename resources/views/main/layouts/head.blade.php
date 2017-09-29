@@ -33,3 +33,6 @@
 
 	<!--Recaptcha-->
 	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<!--icon -->
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" type="image/gif" href="images/icon/animated_favicon1.gif">

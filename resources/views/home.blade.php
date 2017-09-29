@@ -24,6 +24,12 @@
 		table.border, table.border td, table.border .th {
 			border-color: #ccc;
 		}
+		.th, #gras{
+			font-weight: bold;
+		}
+		.fooer{
+			padding-bottom: 15px;
+		}
 
 		.center {
 			margin: auto;
@@ -77,7 +83,6 @@
 	</style>
 </head>
 <body>
-	{{-- <h1>Reservation no {{ $reservation->id }}</h1> --}}
 
 	<table id="invoice" class="no_border">
 		<tr>
@@ -85,13 +90,13 @@
 				<table class="invoice_head center no_border">
 					<tr>
 						<td class="logo text-center">
-							<strong><img src="images/logo/logo.png"> LEDYA PYRAMIDE HOTEL</strong>
+							<img src="images/logo/logo.png"> <strong>LEDYA PYRAMIDE HOTEL</strong>
 						</td>
 					</tr>
 
 					<tr>
 						<td class="invoice_head__title">
-							<h1>FACTURE no. {{ $reservation->room->code }} /{{ \Carbon\Carbon::now()->format('d/m/Y') }}</h1>
+							<h2>FACTURE no. {{ $reservation->room->code }} / {{ \Carbon\Carbon::now()->format('d/m/Y') }}</h2>
 						</td>
 					</tr>
 				</table>
@@ -122,7 +127,7 @@
 			<td>
 				<table class="invoice_table center border">
 					<tr>
-						<td class="th p-2">#</td>
+						<td class="th p-2">N°</td>
 						<td class="th">Desciption</td>
 						<td class="th">Prix</td>
 						<td class="th">QTE</td>
@@ -186,11 +191,51 @@
 			</td>
 		</tr>
 
-		<tr>
-			<td class="text-center">
-				Ceci est le pied de page de la facture.
-			</td>
-		</tr>
+		
+			<tr>
+				<td class="text-center">
+					<hr>
+						Nous sommes ravi de votre passage au sein de Ledya Pyramide HOTEL. Nous serons encore ravi de vous compter parmis nous et vous offrir nos services.
+				</td>
+			</tr>
+			<tr><td></td></tr>
+			
+			<tr>
+				<td class="text-center">CONTACTER NOUS AUX ADRESSES SUIVANT : </td>
+
+			</tr>
+			<tr><td></td></tr>
+
+
+			<tr>
+				<td class="text-center">
+					Adresse :  35 Avenue Nguma , Macampagne, Kinshasa
+				</td>
+			</tr>
+
+
+	        <tr>
+	            <td class="text-center">
+	             	Téléphone : +243 820005454 ; 82005464	
+	             </td>
+	             
+
+	        </tr>
+
+
+	        <tr>
+	             <td class="text-center">
+	             	E-mail : info@pyramide-hotel.com
+	             </td>
+	        </tr>
+
+
+	        <tr>
+	            <td class="text-center">
+	             	Site internet: www.pyramide-hotel.com
+	            </td>
+	        </tr>
+	
 	</table>
 </body>
 </html>
