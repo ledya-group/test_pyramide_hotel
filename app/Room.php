@@ -31,8 +31,7 @@ class Room extends Model
 	public function reservation()
 	{
 		return $this->hasMany(Reservation::class)
-			// ->limit(1)
-			->orderBy('id', 'desc')
+			->latest()
 			->withoutGlobalScopes();
 	}
 
@@ -72,6 +71,38 @@ class Room extends Model
 		})->orWhere(function ($query) {
 			$query->doesntHave('reservation');
 		})->where('room_type_id', $room_type_id);
+	}
+
+	public function isFree()
+	{
+		$today = \Carbon\Carbon::today();
+
+		$reservation = $this->reservation;
+
+		if ($reservation->count() == 0) return true;
+
+		if (
+			$reservation->count() > 0 and (
+				$reservation->where('checkout', '<', $today)
+					->where('checkin', '>=', $today)
+					->count() !== 0 
+			)
+		) { return true; }
+
+		if (
+			$reservation->count() > 0 and (
+				$reservation->where('checkout', '>', $today)
+					->where('checkin', '>=', $today)
+					->count() !== 0 
+			)
+		) { return true; }
+
+		// if () { return true; }
+		
+		return false;
+		$this->reservation->where('checkout', '<', $today);
+		if ($this->reservation)
+		return ;
 	}
 
 	public function getStatus()
