@@ -21,6 +21,7 @@ class DashboardController extends Controller
             ->orderBy('checkout')
             ->get();
 
-        return view('admin.dashboard.index', compact('reservations'));
+        return view('admin.reservations.index', compact('reservations'));
+        // return view('admin.dashboard.index', compact('reservations'));
     }
 }

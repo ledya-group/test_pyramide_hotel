@@ -19,11 +19,11 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Chambre</th>
                         <th>Client</th>
+                        <th>Chambre</th>
                         <th>Arrivé</th>
                         <th>Départ</th>
-                        <th>Days</th>
+                        <th>Jours</th>
                         <th>$/Jours</th>
                         <th>Total</th>
                         <th>Payé</th>
@@ -35,9 +35,9 @@
                 <tbody>
                     @foreach($reservations as $reservation)
                         <tr>
-                            <td>{{ $reservation->room->code }}</td>
-
                             <td>{{ optional(optional($reservation->client)->present())->fullName }}</td>
+
+                            <td>{{ $reservation->room->code }}</td>
 
                             <td>{{ optional($reservation->present())->dateIn }}</td>
 

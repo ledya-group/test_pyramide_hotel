@@ -12,31 +12,31 @@ class OnlineUsersTableSeeder extends Seeder
     public function run()
     {
         $jobs = [
-            'Receptionniste'
+            'Receptionniste',
+            'Admin'
         ];
 
         foreach($jobs as $job) {
             factory(App\Job::class)->create(['title' => $job]);
         }
         
-
-        
-            $agent->profile->save(
-                array(
-                    factory(App\Profile::class)->make()
-                )
-            );
-
-            $agent->job->save(
-                array(
-                    factory(App\Job::class)->make()
-                )
-            );
+        factory(App\Agent::class, 1)->create()->each(function ($agent)
+        {
+            $agent->profile->save([
+                'first_name' => "Daniel",
+                'last_name' => "Rubango",
+                'email' => "danielrubango@gmail.com",
+                'address' => "",
+                'title' => "M.",
+                'country' => "",
+                'phone_number' => ""
+            ]);
 
             factory(App\User::class)->create([
                 "owner_type" => 'App\Agent',    
-                "owner_id" => $agent->id
+                "owner_id" => $agent->id,
+                "password" => bcrypt("verySecretPassword0000")
             ]);
-        
+        });
     }
 }

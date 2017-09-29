@@ -50,7 +50,7 @@ class ReservationsController extends Controller
             
         $room = $room->open($room_type_id)->firstOrFail();
         
-        $client_id = $client::firstOrCreate([
+        $client_ = $client::firstOrCreate([
             'profile_id' => $profile_id
         ],[
             'profile_id' => $profile_id,
@@ -67,7 +67,7 @@ class ReservationsController extends Controller
         $room->reservation()->create([
             "total_price" => $total_price,
             // "room_id" => $room->id,
-            "client_id" => $client_id,
+            "client_id" => $client_->id,
             "checkin" => $request->checkin,
             "checkout" => $request->checkout,
             "description" => $reservation['message']

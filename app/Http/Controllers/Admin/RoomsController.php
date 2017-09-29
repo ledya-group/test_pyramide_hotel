@@ -16,6 +16,8 @@ class RoomsController extends Controller
      */
     public function index(Room $room)
     {
+        // return (string) $room::first()->isFree();
+
         if (request()->free) {
             $rooms = $room->available();
 
