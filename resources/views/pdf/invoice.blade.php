@@ -1,292 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Example 2</title>
-        <style>
-            @font-face {
-                font-family: DejaVu Sans;
-            }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="animated_favicon1.gif">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 
-            .clearfix:after {
-                content: "";
-                display: table;
-                clear: both;
-            }
+  <style>
+    table, .th, td {
+      border-collapse: collapse;
+      border: solid 1px #000;
+    }
 
-            a {
-              color: #0087C3;
-              text-decoration: none;
-            }
+    table#invoice {
+      width: 100%;
+      margin: auto;
+    }
 
-            body {
-              position: relative;
-              width: 21cm;
-              height: 29.7cm;
-              margin: 0 auto;
-              color: #555555;
-              background: #FFFFFF;
-              font-family: Arial, sans-serif;
-              font-size: 14px;
-              font-family: DejaVu Sans;
-            }
+    table.no_border, table.no_border td, table.no_border .th {
+      border-color: transparent;
+    }
 
-            .header {
-              padding: 10px 0;
-              margin-bottom: 20px;
-              border-bottom: 1px solid #AAAAAA;
-            }
+    table.border, table.border td, table.border .th {
+      border-color: #ccc;
+    }
+    .th, #gras{
+      font-weight: bold;
+    }
+    .fooer{
+      padding-bottom: 15px;
+    }
 
-            #logo {
-              float: left;
-              margin-top: 8px;
-            }
+    .center {
+      margin: auto;
+    }
 
-            #logo img {
-              height: 70px;
-            }
+    .text-left {
+      text-align: left;
+    }
 
-            #company {
-              float: right;
-              text-align: right;
-            }
+    .text-right {
+      text-align: right;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .va-top {
+      vertical-align: top;
+    }
+
+    .pd-r {
+      padding-right: 10px;
+    }
+
+    .invoice_body__client {
+      margin-top: 20px;
+      margin-left: 40px;
+      margin-bottom: 10px;
+    }
+
+    .invoice_table {
+      margin-top: 30px;
+      margin-bottom: 50px;
+    }
+
+    .invoice_table .th {
+      min-width: 50px;
+      padding: 10px 0;
+      text-align: center;
+      background: #ccc;
+    }
+
+    .pd {
+      padding: 10px 0;
+    }
+
+    .invoice_table td {
+      padding: 10px 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <table id="invoice" class="no_border">
+    <tr>
+      <td class="th">
+        <table class="invoice_head center no_border">
+          <tr>
+            <td class="logo text-left">
+              <img src="logo.png"> <strong>LEDYA PYRAMIDE HOTEL</strong> <br>
+               35 Avenue Nguma , Macampagne, Kinshasa <br>
+               Contacte : +243 820005454 ; 82005464 
+            </td>
+          </tr>
+
+          <tr>
+            <td class="invoice_head__title " style="font-style: center;">
+              <h3>FACTURE no. {{ $reservation->id }} / {{ $reservation->room->code }} </h3>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr class="invoice_body">
+      <td class="invoice_body__client">
+        <table class="no_border">
+
+          <tr>
+            <td> - Adressée à -</td>
+          </tr>
+          <tr>
+            <td>Nom</td>
+            <td>: <strong>{{ $reservation->client->present()->fullName }}</strong></td>
+          </tr>
+
+          <tr>
+            <td>Téléphone</td>
+            <td>: <strong>{{ $reservation->client->profile->phone_number }}</strong></td>
+          </tr>
 
 
-            #details {
-              margin-bottom: 50px;
-            }
+          
+          <tr>
+            <td>Service</td>
+            <td>: <strong>Occupation chambre</strong></td>
+          </tr>
+          <tr>
+            <td>Date</td>
+            <td>: <strong>{{ \Carbon\Carbon::now()->format('d/m/Y') }}</strong></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
 
-            #client {
-              padding-left: 6px;
-              border-left: 6px solid #0087C3;
-              float: left;
-            }
+    <tr>
+      <td>
+        <table class="invoice_table center border">
+          <tr>
+            <td class="th p-2">Réf.</td>
+            <td class="th">Desciption</td>
+            <td class="th">Prix</td>
+            <td class="th">QTE</td>
+            <td class="th">Total</td>
+          </tr>
+          <tr>
+            <td class="va-top text-center"><strong>{{ $reservation->room->code }}</strong></td>
+            
+            <td  class="va-top">
+              Occupation chambre  - <strong>{{ $reservation->room->type->name }}</strong>
 
-            #client .to {
-              color: #777777;
-            }
+              <ul>
+                <li>Entree : {{ $reservation->present()->dateIn }}</li>
+                <li>Sortie : {{ $reservation->present()->dateOut }}</li>
+              </ul>
+            </td>
 
-            h2.name {
-              font-size: 1.4em;
-              font-weight: normal;
-              margin: 0;
-            }
+            <td  class="va-top">
+              ${{ $reservation->room->type->base_price }}
+            </td>
 
-            #invoice {
-              float: right;
-              text-align: right;
-            }
+            <td  class="va-top text-center">
+              {{ $reservation->present()->days }}
+            </td>
 
-            #invoice h1 {
-              color: #0087C3;
-              font-size: 2.4em;
-              line-height: 1em;
-              font-weight: normal;
-              margin: 0  0 10px 0;
-            }
+            <td  class="va-top">
+              ${{ $reservation->total_price }}
+            </td>
+          </tr>
 
-            #invoice .date {
-              font-size: 1.1em;
-              color: #777777;
-            }
+          <tr>
+            <td colspan="4" class="text-right pd-r">
+              Sous-total : 
+            </td>
 
-            table {
-              width: 100%;
-              border-collapse: collapse;
-              border-spacing: 0;
-              margin-bottom: 20px;
-            }
+            <td>
+              ${{ $reservation->total_price }}
+            </td>
+          </tr>
 
-            table th,
-            table td {
-              padding: 20px;
-              background: #EEEEEE;
-              text-align: center;
-              border-bottom: 1px solid #FFFFFF;
-            }
+          <tr>
+            <td colspan="4" class="text-right pd-r">
+              TVA : 
+            </td>
 
-            table th {
-              white-space: nowrap;
-              font-weight: normal;
-            }
+            <td>
+              0%
+            </td>
+          </tr>
 
-            table td {
-              text-align: right;
-            }
+          <tr>
+            <td colspan="4" class="text-right pd-r">
+              Grand Total : 
+            </td>
 
-            table td h3{
-              color: #57B223;
-              font-size: 1.2em;
-              font-weight: normal;
-              margin: 0 0 0.2em 0;
-            }
+            <td>
+              ${{ $reservation->total_price }}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
 
-            table .no {
-              color: #FFFFFF;
-              font-size: 1.6em;
-              background: #57B223;
-            }
+    
+      <tr>
+        <td colspan="2" class="text-left pd-r">
+        
+          <label>A payer :</label> <input type="message" name="" > 
+          <label style="padding-left: 5em;"> Reste: </label><input type="message" name="" >
+        </td> 
+      </tr>
 
-            table .desc {
-              text-align: left;
-            }
+      
 
-            table .unit {
-              background: #DDDDDD;
-            }
+    <tr>
+      <td></td>
+    </tr>
+    <tr>  
+      <td></td>
+    </tr>
+    
+      <tr>
+        <td class="text-center">
+          <hr>
+            Nous sommes ravi de votre passage au sein de Ledya Pyramide HOTEL. Nous serons encore ravi de vous compter parmis nous et vous offrir nos services.
+        </td>
+      </tr>
+      <tr><td></td></tr>
+      
+      <tr>
+        <td class="text-center">CONTACTER NOUS AUX ADRESSES SUIVANT : </td>
 
-            table .qty {
-            }
+      </tr>
+      <tr><td></td></tr>
 
-            table .total {
-              background: #57B223;
-              color: #FFFFFF;
-            }
 
-            table td.unit,
-            table td.qty,
-            table td.total {
-              font-size: 1.2em;
-            }
+      <tr>
+        <td class="text-center">
+          Adresse :  35 Avenue Nguma , Macampagne, Kinshasa
+        </td>
+      </tr>
 
-            table tbody tr:last-child td {
-              border: none;
-            }
 
-            table tfoot td {
-              padding: 10px 20px;
-              background: #FFFFFF;
-              border-bottom: none;
-              font-size: 1.2em;
-              white-space: nowrap;
-              border-top: 1px solid #AAAAAA;
-            }
+          <tr>
+              <td class="text-center">
+                Téléphone : +243 820005454 ; 82005464 
+               </td>
+               
 
-            table tfoot tr:first-child td {
-              border-top: none;
-            }
+          </tr>
 
-            table tfoot tr:last-child td {
-              color: #57B223;
-              font-size: 1.4em;
-              border-top: 1px solid #57B223;
 
-            }
+          <tr>
+               <td class="text-center">
+                E-mail : info@pyramide-hotel.com
+               </td>
+          </tr>
 
-            table tfoot tr td:first-child {
-              border: none;
-            }
 
-            #thanks{
-              font-size: 2em;
-              margin-bottom: 50px;
-            }
-
-            #notices{
-              padding-left: 6px;
-              border-left: 6px solid #0087C3;
-            }
-
-            #notices .notice {
-              font-size: 1.2em;
-            }
-
-            .footer {
-              color: #777777;
-              width: 100%;
-              height: 30px;
-              position: absolute;
-              bottom: 0;
-              border-top: 1px solid #AAAAAA;
-              padding: 8px 0;
-              text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="header clearfix">
-            <div id="logo">
-                {{--  <img src="{{ asset("images/logo.png") }}">  --}}
-            </div>
-            <div id="company">
-                <h2 class="name">PYRAMIDE HOTEL</h2>
-                <div>455 Foggy Heights, AZ 85004, US</div>
-                <div>(602) 519-0450</div>
-                <div><a href="mailto:info@pyramide-hotel.com">info@pyramide-hotel.com</a></div>
-            </div>
-        </div>
-
-        <div>
-            <div id="details" class="clearfix">
-                <div id="client">
-                    <div class="to">INVOICE TO:</div>
-                    <h2 class="name">{{ $reservation->client->present()->fullName() }}</h2>
-                    <div class="address">{{ $reservation->client->profile->address }}</div>
-                    <div class="tel">{{ $reservation->client->profile->phone_number }}</div>
-                    <div class="email">
-                        <a href="{{ $reservation->client->present()->email }}">
-                            {{ $reservation->client->present()->email }}
-                        </a>
-                    </div>
-                </div>
-                <div id="invoice">
-                    <h1>INVOICE #{{ $reservation->id }}</h1>
-                    <div class="date">Date of Invoice: {{ now()->format('d-m-Y') }}</div>
-                    <div class="date">Due Date: $reservation->checkout </div>
-                </div>
-            </div>
-            <table border="0" cellspacing="0" cellpadding="0">
-                <thead>
-                    <tr>
-                        <th class="no">#</th>
-                        <th class="desc">DESCRIPTION</th>
-                        <th class="unit">UNIT PRICE</th>
-                        <th class="qty">QUANTITY</th>
-                        <th class="total">TOTAL</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="no">01</td>
-                        <td class="desc">
-                            <h3>Occupation chambre</h3>
-                            Chambre $reservation->room->present()->name du _$reservation->checkin_ au _$reservation->checkout_
-                        </td>
-                        <td class="unit">$ $reservation->room->base_price</td>
-                        <td class="qty">1</td>
-                        <td class="total">$ $reservation->room->base->price * 1</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2"></td>
-                        <td colspan="2">SUBTOTAL</td>
-                        <td>$5,200.00</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"></td>
-                        <td colspan="2">TAX 25%</td>
-                        <td>$1,300.00</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2"></td>
-                        <td colspan="2">GRAND TOTAL</td>
-                        <td>$6,500.00</td>
-                    </tr>
-                </tfoot>
-            </table>
-
-            <div id="thanks">Thank you!</div>
-
-            <div id="notices">
-                <div>Note:</div>
-                <div class="notice">A charge sera ajouté sur des factures impayés apres 30 jours.</div>
-            </div>
-        </div>
-
-        <div class="footer">
-            Facture créée automatiquement à partir d'un ordinateur, ainsi valide sans une signature ou un sceau.
-        </div>
-    </body>
+          <tr>
+              <td class="text-center">
+                Site internet: www.pyramide-hotel.com
+              </td>
+          </tr>
+  
+  </table>
+</body>
 </html>
