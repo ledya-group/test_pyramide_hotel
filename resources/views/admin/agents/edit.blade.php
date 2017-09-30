@@ -32,7 +32,7 @@
             <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                 <label for="username" class="control-label">Username</label>
 
-                <input id="name" type="text" class="form-control" name="username" value="{{ old('username') ?? $agent->data->username }}" autofocus>
+                <input disabled id="name" type="text" class="form-control" name="username" value="{{ old('username') ?? $agent->data->username }}" autofocus>
 
                 @if ($errors->has($input))
                     <span class="help-block">
