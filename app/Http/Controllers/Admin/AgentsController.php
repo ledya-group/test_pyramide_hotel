@@ -41,14 +41,12 @@ class AgentsController extends Controller
      */
     public function store(Request $request)
     {
-        $profile_data = request()->validate([
+        // validation
+        request()->validate([
             'first_name' => 'string',
             'last_name' => 'string',
             'middle_name' => 'nullable|string',
             'email' => 'nullable|email',
-        ]);
-
-        $agent_data = request()->validate([
             'job_id' => 'numeric',
             'role' => 'string',
             'password' => '',
@@ -58,6 +56,8 @@ class AgentsController extends Controller
             $agent->profile->update($profile_data);
             $agent->update($agent_data);
         } catch(\Exception $e) {
+            flash('Une Erreur est survenue ! Reessayer.')->danger();
+            
             return redirect()
                 ->back()
                 ->with('flash', 'La modification a ete faite.');
