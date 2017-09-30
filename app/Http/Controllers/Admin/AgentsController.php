@@ -41,7 +41,30 @@ class AgentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $profile_data = request()->validate([
+            'first_name' => 'string',
+            'last_name' => 'string',
+            'middle_name' => 'nullable|string',
+            'email' => 'nullable|email',
+        ]);
+
+        $agent_data = request()->validate([
+            'job_id' => 'numeric',
+            'role' => 'string',
+            'password' => '',
+        ]);
+        
+        try{
+            $agent->profile->update($profile_data);
+            $agent->update($agent_data);
+        } catch(\Exception $e) {
+            return redirect()
+                ->back()
+                ->with('flash', 'La modification a ete faite.');
+        }
+
+        return redirect()->route('agents.index')
+            ->with('flash', 'La modification a ete faite.');
     }
 
     /**
@@ -76,9 +99,34 @@ class AgentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Agent $agent)
     {
-        //
+        // return request();
+        $profile_data = request()->validate([
+            'first_name' => 'string',
+            'last_name' => 'string',
+            'middle_name' => 'nullable|string',
+            'email' => 'nullable|email',
+        ]);
+
+        $agent_data = request()->validate([
+            'job_id' => 'numeric',
+            'role' => 'string',
+            // 'password' => '',
+            // 'p'
+        ]);
+        
+        try{
+            $agent->profile->update($profile_data);
+            $agent->update($agent_data);
+        } catch(\Exception $e) {
+            return redirect()
+                ->back()
+                ->with('flash', 'La modification a ete faite.');
+        }
+
+        return redirect()->route('agents.index')
+            ->with('flash', 'La modification a ete faite.');
     }
 
     /**

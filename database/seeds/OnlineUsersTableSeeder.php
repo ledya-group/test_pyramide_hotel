@@ -13,7 +13,7 @@ class OnlineUsersTableSeeder extends Seeder
     {
         $jobs = [
             'Receptionniste',
-            'Admin'
+            'IT'
         ];
 
         foreach($jobs as $job) {
@@ -22,7 +22,7 @@ class OnlineUsersTableSeeder extends Seeder
         
         factory(App\Agent::class, 1)->create()->each(function ($agent)
         {
-            $agent->profile->save([
+            $agent->profile->create([
                 'first_name' => "Daniel",
                 'last_name' => "Rubango",
                 'email' => "danielrubango@gmail.com",
@@ -34,6 +34,7 @@ class OnlineUsersTableSeeder extends Seeder
 
             factory(App\User::class)->create([
                 "owner_type" => 'App\Agent',    
+                "username" => 'danielrubango',    
                 "owner_id" => $agent->id,
                 "password" => bcrypt("verySecretPassword0000")
             ]);
