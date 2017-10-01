@@ -52,7 +52,7 @@ class RoomTypesController extends Controller
             "description" => $request->description
         ]);
 
-        return redirect()->route('admin.categories.index')
+        return redirect()->route('rooms.index')
             ->with('flash', "La categorie {$request->name} a bel et bien ete creee.");
     }
 
