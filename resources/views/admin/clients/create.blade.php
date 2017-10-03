@@ -13,11 +13,10 @@
 
         <form class="form-horizontal" role="form" method="POST" action="{{ route('clients.store') }}">
             {{ csrf_field() }}
-            
+
             @foreach([
                 ['first_name', 'Prenom'],
                 ['last_name', 'Nom'],
-                ['middle_name', 'Postnom'],
                 ['phone_number', 'Telephone'],
                 ['company', 'Entreprise'],
             ] as $input)
