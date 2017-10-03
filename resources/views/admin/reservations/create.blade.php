@@ -29,7 +29,7 @@
                         <option>Selectionner un client</option>
 
                         @foreach($clients as $client)
-                            <option value="{{ $client->id }}">{{ $client->profile->first_name . ' ' . $client->profile->first_name }}</option>
+                            <option value="{{ $client->id }}">{{ $client->present()->fullName() }}</option>
                         @endforeach
                     </select>
                 </div>
