@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="animated_favicon1.gif">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 
@@ -89,14 +90,16 @@
 			<td class="th">
 				<table class="invoice_head center no_border">
 					<tr>
-						<td class="logo text-center">
-							<img src="images/logo/logo.png"> <strong>LEDYA PYRAMIDE HOTEL</strong>
+						<td class="logo text-left">
+							<img src="logo.png"> <strong>LEDYA PYRAMIDE HOTEL</strong> <br>
+							 35 Avenue Nguma , Macampagne, Kinshasa <br>
+							 Contacte : +243 820005454 ; 82005464	
 						</td>
 					</tr>
 
 					<tr>
-						<td class="invoice_head__title">
-							<h2>FACTURE no. {{ $reservation->room->code }} / {{ \Carbon\Carbon::now()->format('d/m/Y') }}</h2>
+						<td class="invoice_head__title " style="font-style: center;">
+							<h3>FACTURE no. {{ $reservation->id }} / {{ $reservation->room->code }} </h3>
 						</td>
 					</tr>
 				</table>
@@ -106,10 +109,21 @@
 		<tr class="invoice_body">
 			<td class="invoice_body__client">
 				<table class="no_border">
+
+					<tr>
+						<td> - Adressée à -</td>
+					</tr>
 					<tr>
 						<td>Nom</td>
 						<td>: <strong>{{ $reservation->client->present()->fullName }}</strong></td>
 					</tr>
+
+					<tr>
+						<td>Téléphone</td>
+						<td>: <strong>{{ $reservation->client->profile->phone_number }}</strong></td>
+					</tr>
+
+
 					
 					<tr>
 						<td>Service</td>
@@ -127,17 +141,17 @@
 			<td>
 				<table class="invoice_table center border">
 					<tr>
-						<td class="th p-2">N°</td>
+						<td class="th p-2">Réf.</td>
 						<td class="th">Desciption</td>
 						<td class="th">Prix</td>
 						<td class="th">QTE</td>
 						<td class="th">Total</td>
 					</tr>
 					<tr>
-						<td class="va-top text-center">1</td>
+						<td class="va-top text-center"><strong>{{ $reservation->room->code }}</strong></td>
 						
 						<td  class="va-top">
-							Occupation chambre <strong>{{ $reservation->room->code }}</strong> - <strong>{{ $reservation->room->type->name }}</strong>
+							Occupation chambre  - <strong>{{ $reservation->room->type->name }}</strong>
 
 							<ul>
 								<li>Entree : {{ $reservation->present()->dateIn }}</li>
@@ -191,6 +205,23 @@
 			</td>
 		</tr>
 
+		
+			<tr>
+				<td colspan="2" class="text-left pd-r">
+				
+					<label>A payer :</label> <input type="message" name="" > 
+					<label style="padding-left: 5em;"> Reste: </label><input type="message" name="" >
+				</td> 
+			</tr>
+
+			
+
+		<tr>
+			<td></td>
+		</tr>
+		<tr>	
+			<td></td>
+		</tr>
 		
 			<tr>
 				<td class="text-center">
