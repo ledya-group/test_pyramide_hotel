@@ -60,9 +60,8 @@
             </div>
         </div>
     </div>
-</footer>
-<div class="row">
-    <div class="col-lg-12" style="background-color: black;">
+    <div class="row">
+    <div class="col-lg-12">
         <div class="text-center copyright">
                     
                 <small>
@@ -73,5 +72,7 @@
         </div>
     </div>
 </div>
+</footer>
+
             
         
