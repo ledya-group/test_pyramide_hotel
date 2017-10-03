@@ -16,7 +16,7 @@
                         <option disabled selected>Selectionner une chambre</option>
 
                         @foreach($rooms as $room)
-                            <option value="{{ $room->id }}" {{ ($room_id == $room->id)? "selected":"" }}>
+                            <option value="{{ $room->id }}" {{ (($room_id ?? null) == $room->id)? "selected":"" }}>
                                 {{ $room->type->name }} - {{ $room->code }} <strong>{{ $room->type->base_price }}/jour</strong>
                             </option>
                         @endforeach
@@ -29,7 +29,7 @@
                         <option>Selectionner un client</option>
 
                         @foreach($clients as $client)
-                            <option value="{{ $client->id }}">{{ $client->profile->first_name . ' ' . $client->profile->first_name }}</option>
+                            <option value="{{ $client->id }}">{{ $client->present()->fullName() }}</option>
                         @endforeach
                     </select>
                 </div>
