@@ -49,7 +49,7 @@
                                     <a href="{{ route('agents.edit', $agent->id) }}" class="btn btn-primary btn-sm mr-1">
                                         <i class="icon-pencil"></i> Modifier
                                     </a>
-                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#roomDestroyModal" data-room-id="{{ $agent->id }}">
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#agentDestroyModal" data-agent-id="{{ $agent->id }}">
                                         <i class="icon-trash"></i> Supprimer
                                     </button>
                                 </td>
@@ -62,4 +62,13 @@
             </li>
         </ul>
     </div>
+
+    @include('layouts.admin.modals.destroy', [
+        'modal_title' => 'Supprimer l\'agent',
+        'modal_description' => 'Voulez-vous vraiment supprimer cet Agent ?',
+        'route_prefix' => "agents.index",
+        'modal_form_id' => 'agentDestroyForm',
+        'modal_id' => 'agentDestroyModal',
+        'dataTarget_id' => 'agent-id'
+    ])
 @endsection

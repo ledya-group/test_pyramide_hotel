@@ -11,7 +11,7 @@
             Ajouter un nouvel agent
         </p>
 
-        <form class="form-horizontal" role="form" method="POST" action="{{ route('agents.create') }}" id="needs-validation" novalidate>
+        <form class="form-horizontal" role="form" method="POST" action="{{ route('agents.store') }}" id="needs-validation" novalidate>
             {{ csrf_field() }}
             
             @foreach([['first_name', 'Prenom'], ['last_name', 'Nom'], ['username', 'Nom d\'utilisateur']] as $input)
@@ -30,7 +30,7 @@
 
             <div class="form-group">
                 <label for="code">Job title</label>
-                <select required class="form-control" name="id_job">
+                <select required class="form-control" name="job_id">
                     @foreach($jobs as $job)
                         <option value="{{ $job->id }}">{{ $job->title }}</option>
                     @endforeach
@@ -39,7 +39,7 @@
 
             <div class="form-group">
                 <label for="code">Role</label>
-                <select required class="form-control" name="id_role">
+                <select required class="form-control" name="role">
                     <option value="admin">Administrateur</option>
                     <option value="agent">Agent</option>
                 </select>

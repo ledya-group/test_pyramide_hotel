@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Job;
+use App\User;
 use App\Agent;
+use App\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -39,7 +41,7 @@ class AgentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Agent $agent, User $user, Profile $profile)
     {
         // validation                           
         request()->validate([
@@ -54,18 +56,33 @@ class AgentsController extends Controller
         ]);
         
         try{
-            $agent->profile->create(request([
+            $profile = $profile->create(request()->only([
                 'first_name',
                 'last_name',
                 'middle_name',
                 'email',
             ]));
-            
-            $agent->create(request([
+
+            $client_request = request()->only([
                 'role',
-                'job_id',
+                'job_id'
+            ]);
+
+            $client_request['profile_id'] = $profile->id;
+            
+            $agent = $agent->create($client_request);
+            
+            $user_request = request()->only([
+                'owner_type',
+                'owner_id',
+                'username',
                 'password'
-            ]));
+            ]);
+
+            $user_request['owner_type'] = "App\Agent";
+            $user_request['owner_id'] = $agent->id;
+
+            $user->create($user_request);
         } catch(\Exception $e) {
             // flash('Une Erreur est survenue ! Reessayer.')->danger();
             
@@ -112,7 +129,11 @@ class AgentsController extends Controller
      */
     public function update(Request $request, Agent $agent)
     {
-        // return request();
+        request()->validate([
+            'password' => 'required',
+            'password_confirmation' => 'required|same:password',
+        ]);
+
         $profile_data = request()->validate([
             'first_name' => 'required|string',
             'last_name' => 'required|string',
@@ -122,18 +143,17 @@ class AgentsController extends Controller
 
         $agent_data = request()->validate([
             'job_id' => 'required|numeric',
-            'role' => 'required|string',
-            // 'password' => '',
-            // 'p'
+            'role' => 'required|string'
         ]);
         
         try{
             $agent->profile->update($profile_data);
             $agent->update($agent_data);
+            $agent->data->update(request()->only('password'));
         } catch(\Exception $e) {
             return redirect()
                 ->back()
-                ->with('flash', 'La modification a ete faite.');
+                ->with('flash', 'La modification a echouee.');
         }
 
         return redirect()->route('agents.index')
@@ -149,9 +169,12 @@ class AgentsController extends Controller
     public function destroy($id)
     {
         $agent = Agent::findOrFail($id);
+        // return $agent->profile;
         
         $agent->data->delete();
         $agent->profile->delete();
         $agent->delete();
+
+        return redirect()->route('agents.index');
     }
 }
