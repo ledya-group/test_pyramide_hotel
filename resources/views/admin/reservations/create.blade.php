@@ -16,7 +16,7 @@
                         <option disabled selected>Selectionner une chambre</option>
 
                         @foreach($rooms as $room)
-                            <option value="{{ $room->id }}" {{ ($room_id == $room->id)? "selected":"" }}>
+                            <option value="{{ $room->id }}" {{ (($room_id ?? null) == $room->id)? "selected":"" }}>
                                 {{ $room->type->name }} - {{ $room->code }} <strong>{{ $room->type->base_price }}/jour</strong>
                             </option>
                         @endforeach
