@@ -17,14 +17,14 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        $clients = Reservation::with('client.profile')
-            // ->active()
-            ->get()
-            ->pluck('client');
+        // $clients = Reservation::with('client.profile')
+        //     // ->active()
+        //     ->get()
+        //     ->pluck('client');
 
         // return $clients;
 
-        return view('admin.clients.index')->withClients($clients);
+        return view('admin.clients.index')->withClients(Client::all());
     }
 
     /**
