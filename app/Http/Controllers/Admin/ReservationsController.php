@@ -20,7 +20,7 @@ class ReservationsController extends Controller
     public function index()
     {
         $reservations = Reservation::active()
-            ->orderBy('checkout')
+            // ->orderBy('created_at')
             ->get();
 
         return view('admin.reservations.index', [
@@ -36,7 +36,7 @@ class ReservationsController extends Controller
     public function create(Room $room)
     {
         $rooms = $room->available();
-        $clients = Client::all();
+        $clients = Client::orderBy('id', 'desc')->get();
         
         if(!empty(request()->room_id)) {
             $room_id = request()->room_id;

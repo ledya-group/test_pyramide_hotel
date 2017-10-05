@@ -24,7 +24,7 @@ class ClientsController extends Controller
 
         // return $clients;
 
-        return view('admin.clients.index')->withClients(Client::all());
+        return view('admin.clients.index')->withClients(Client::orderBy('id', 'desc')->get());
     }
 
     /**

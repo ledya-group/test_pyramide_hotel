@@ -52,7 +52,7 @@
                                 </td>
 
                                 <td>
-                                    {{ $reservation->client->present()->fullName() }}
+                                    {{--  {{ $reservation->client->present()->fullName() }}  --}}
                                 </td>
 
                                 <td>

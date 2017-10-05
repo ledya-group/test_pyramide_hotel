@@ -35,7 +35,9 @@
                 <tbody>
                     @foreach($reservations as $reservation)
                         <tr>
-                            <td>{{ optional(optional($reservation->client)->present())->fullName }}</td>
+                            <td>
+                                {{ $reservation->client->fullName() }}
+                            </td>
 
                             <td>{{ $reservation->room->code }}</td>
 

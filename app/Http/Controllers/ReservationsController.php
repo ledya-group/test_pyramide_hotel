@@ -32,10 +32,12 @@ class ReservationsController extends Controller
 
         // return $client_profile['email'];
 
-        $profile_id = ($profile::firstOrCreate([
+        $profile = $profile::firstOrCreate([
             'email' => $client_profile['email'],
             'first_name' => $client_profile['first_name'],
-        ], $client_profile))->id;
+        ], $client_profile);
+
+        if($profile->id == null) { return "Not Working"; }
 
         $reservation = request()->validate([
             // 'occupant' => 'required|numeric',
@@ -51,9 +53,9 @@ class ReservationsController extends Controller
         $room = $room->open($room_type_id)->firstOrFail();
         
         $client_ = $client::firstOrCreate([
-            'profile_id' => $profile_id
+            'profile_id' => $profile->id
         ],[
-            'profile_id' => $profile_id,
+            'profile_id' => $profile->id,
             'company' => 'No Company'
         ]);
 

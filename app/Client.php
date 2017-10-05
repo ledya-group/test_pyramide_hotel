@@ -20,6 +20,11 @@ class Client extends Model
         return $this->belongsTo(Profile::class);
     }
 
+    public function fullName()
+    {
+        return "{$this->profile->first_name} {$this->profile->last_name}";
+    }
+
     public function reservations()
     {
         return $this->hasMany(Reservation::class);
