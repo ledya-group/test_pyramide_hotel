@@ -13,7 +13,7 @@ class Reservation extends Model
 
 	protected $guarded = [];
 	
-	protected $dateFormat = 'd-m-Y';
+	// protected $dateFormat = 'd-m-Y';
 
     protected $dates = ['checkin', 'checkout'];
 	
