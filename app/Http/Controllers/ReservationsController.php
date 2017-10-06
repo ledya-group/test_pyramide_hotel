@@ -70,8 +70,8 @@ class ReservationsController extends Controller
             "total_price" => $total_price,
             // "room_id" => $room->id,
             "client_id" => $client_->id,
-            "checkin" => substr($request->checkin, 0, 10),
-            "checkout" => substr($request->checkout, 0, 10),
+            "checkin" => $request->checkin->format('Y-m-d'),
+            "checkout" => $request->checkout->format('Y-m-d'),
             "description" => $reservation['message']
         ]);
 
