@@ -13,7 +13,7 @@ class Reservation extends Model
 
 	protected $guarded = [];
 	
-	protected $dateFormat = 'd/m/Y';
+	protected $dateFormat = 'd-m-Y';
 
     protected $dates = ['checkin', 'checkout'];
 	
@@ -58,6 +58,16 @@ class Reservation extends Model
 		});
 
 		return $query;
+	}
+
+	public function setCheckin($value)
+	{
+		$this->attributes['checkin'] =  Carbon::parse($value);
+	}
+
+	public function setCheckout($value)
+	{
+		$this->attributes['checkin'] =  Carbon::parse($value);
 	}
 
 	public function isNoActive()
