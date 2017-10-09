@@ -64,7 +64,10 @@
 
 		.invoice_table {
 			margin-top: 30px;
-			margin-bottom: 50px;
+      		margin-bottom: 50px;
+      		border-collapse: separate;
+      		border-spacing: 0px;
+      		border-radius: 3px 3px 0px 0px ;
 		}
 
 		.invoice_table .th {

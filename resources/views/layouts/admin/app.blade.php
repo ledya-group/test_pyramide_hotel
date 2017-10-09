@@ -12,7 +12,7 @@
 
     <!-- Icons -->
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
-    <link rel="shortcut icon" href="images/icon/animated_favicon1.gif">
+    <link rel="shortcut icon" href="{{asset('images/icon/icon.ico')}}"> 
     <link href="{{ asset('css/simple-line-icons.css') }}" rel="stylesheet">
 
     <!-- Main styles for this application -->

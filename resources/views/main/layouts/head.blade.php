@@ -1,5 +1,5 @@
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="images/icon/animated_favicon1.gif">
+	<link rel="shortcut icon" href="images/icon/icon.ico">
 	<!-- <link href='https://fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700italic,900,700,900italic' rel='stylesheet' type='text/css'> -->
 
 	<link rel="stylesheet" href="css/superfish.css">

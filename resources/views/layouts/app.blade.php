@@ -11,7 +11,7 @@
     <title>Pyramide-Hotel</title>
 
     <!-- Icons -->
-    <link rel="shortcut icon" href="images/icon/animated_favicon1.gif">
+    <link rel="shortcut icon" href="images/icon/icon.ico">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/simple-line-icons.css') }}" rel="stylesheet">
 
