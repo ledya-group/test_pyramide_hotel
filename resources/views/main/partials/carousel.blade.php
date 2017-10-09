@@ -51,7 +51,7 @@
                     </div>
                 </div>
             </li>
-
+            
             <li style="background-image: url({{ asset("images/chambres/junior/junior1.jpg") }});">
                 <div class="overlay-gradient"></div>
                 <div class="container">

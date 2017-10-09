@@ -34,7 +34,7 @@
                     </thead>
 
                     <tbody>
-                        @foreach($agents as $agent)
+                        @forelse($agents as $agent)
                             <tr>
                                 <td>
                                     {{ $agent->present()->fullName }}
@@ -54,7 +54,9 @@
                                     </button>
                                 </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            Aucun agent.
+                        @endforelse
                     </tbody>
                 </table>
             </li>

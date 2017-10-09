@@ -12,6 +12,6 @@ class Agent extends Presenter {
 
     public function jobTitle()
     {
-        return $this->job->title;
+        return optional($this->job)->title;
     }
 }

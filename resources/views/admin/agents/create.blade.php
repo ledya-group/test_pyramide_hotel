@@ -14,7 +14,7 @@
         <form class="form-horizontal" role="form" method="POST" action="{{ route('agents.create') }}" id="needs-validation" novalidate>
             {{ csrf_field() }}
             
-            @foreach([['first_name', 'Prenom'], ['last_name', 'Nom'], ['middle_name', 'Postnom'], ['username', 'Nom d\'utilisateur']] as $input)
+            @foreach([['first_name', 'Prenom'], ['last_name', 'Nom'], ['username', 'Nom d\'utilisateur']] as $input)
                 <div class="form-group{{ $errors->has($input[0]) ? ' is-invalid' : '' }}">
                     <label for="{{ $input[0] }}" class="control-label">{{ $input[1] }}</label>
 
@@ -50,10 +50,6 @@
 
                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
-                <div class="invalid-feedback">
-                    Please provide a valid city.
-                </div>
-
                 @if ($errors->has('email'))
                     <div class="invalid-feedback">
                         {{ $errors->first('email') }}
@@ -81,7 +77,7 @@
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary">
-                    Register
+                    Envoyer
                 </button>
             </div>
         </form>

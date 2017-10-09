@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    <a href="{{ route('categories.create') }}" class="btn btn-primary mb-3">
+    {{--  <a href="{{ route('categories.create') }}" class="btn btn-primary mb-3">
         <i class="icon-plus"></i>
         Ajouter une categorie de chambre
     </a>
@@ -14,7 +14,7 @@
     <a href="{{ route('categories.create') }}" class="btn btn-success mb-3">
         <i class="icon-plus"></i>
         Ajouter une chambre
-    </a>
+    </a>  --}}
 
     <div class="card">
         <div class="card-header">
@@ -52,7 +52,7 @@
                                 </td>
 
                                 <td>
-                                    {{ $reservation->client->profile->first_name }}
+                                    {{ $reservation->client->present()->fullName() }}
                                 </td>
 
                                 <td>

@@ -60,19 +60,17 @@
             </div>
         </div>
     </div>
-    <div class="row">
-    <div class="col-lg-12">
-        <div class="text-center copyright">
-                    
-                <small>
-                   &copy; 2017 All Rights Reserved. Made by 
-                    <a href="mailto:danielrubango@gmail.com">Daniel and Kevin</a>
-                </small>
-                    
+    
+    <div class="row" style="margin-top:149px;">
+        <div class="col-lg-12">
+            <div class="text-center copyright">
+                        
+                    <small>
+                    &copy; 2017 All Rights Reserved. Made by 
+                        <a href="mailto:danielrubango@gmail.com">Daniel and Kevin</a>
+                    </small>
+                        
+            </div>
         </div>
     </div>
-</div>
 </footer>
-
-            
-        

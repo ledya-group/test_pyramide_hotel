@@ -16,7 +16,7 @@ class AgentsController extends Controller
      */
     public function index()
     {
-        $agents = Agent::with('profile')->get();
+        $agents = Agent::with('profile', 'job')->get();
 
         return view('admin.agents.index')->withAgents($agents);
     }
@@ -41,7 +41,41 @@ class AgentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validation                           
+        request()->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'middle_name' => 'nullable|string',
+            'email' => 'nullable|email',
+            'job_id' => 'required|numeric',
+            'role' => 'required|string',
+            'password' => 'required',
+            'password_confirmation' => 'required|same:password',
+        ]);
+        
+        try{
+            $agent->profile->create(request([
+                'first_name',
+                'last_name',
+                'middle_name',
+                'email',
+            ]));
+            
+            $agent->create(request([
+                'role',
+                'job_id',
+                'password'
+            ]));
+        } catch(\Exception $e) {
+            // flash('Une Erreur est survenue ! Reessayer.')->danger();
+            
+            return redirect()
+                ->back()
+                ->with('flash', 'Une Erreur est survenue ! Reessayer.');
+        }
+
+        return redirect()->route('agents.index')
+            ->with('flash', 'La modification a ete faite.');
     }
 
     /**
@@ -76,9 +110,34 @@ class AgentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Agent $agent)
     {
-        //
+        // return request();
+        $profile_data = request()->validate([
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'middle_name' => 'nullable|string',
+            'email' => 'nullable|email',
+        ]);
+
+        $agent_data = request()->validate([
+            'job_id' => 'required|numeric',
+            'role' => 'required|string',
+            // 'password' => '',
+            // 'p'
+        ]);
+        
+        try{
+            $agent->profile->update($profile_data);
+            $agent->update($agent_data);
+        } catch(\Exception $e) {
+            return redirect()
+                ->back()
+                ->with('flash', 'La modification a ete faite.');
+        }
+
+        return redirect()->route('agents.index')
+            ->with('flash', 'La modification a ete faite.');
     }
 
     /**
@@ -89,6 +148,10 @@ class AgentsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $agent = Agent::findOrFail($id);
+        
+        $agent->data->delete();
+        $agent->profile->delete();
+        $agent->delete();
     }
 }

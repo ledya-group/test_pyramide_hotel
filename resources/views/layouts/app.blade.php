@@ -47,9 +47,9 @@
         </div>
 
         <footer class="app-footer">
-            <a href="#">Ledya Pyramide</a> © 2017
+            <a href="pyramide-hotel.com">Ledya Pyramide</a> © 2017
             <span class="float-right">
-                Powered by <a href="http://coreui.io">Daniel and Kevin</a>
+                Powered by <a href="mailto:pangakevin@gmail.com">Daniel and Kevin</a>
             </span>
         </footer>
 
