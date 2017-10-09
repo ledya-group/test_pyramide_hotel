@@ -48,9 +48,9 @@
                 </div>
             </main>
 
-            {{-- <aside class="aside-menu">
+            {{--  <aside class="aside-menu">
                 @include('layouts.admin._aside_sidebar')
-            </aside> --}}
+            </aside>  --}}
         </div>
 
         <footer class="app-footer">
@@ -98,6 +98,17 @@
     }, false);
     }());
     </script>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107785044-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-107785044-1');
+    </script>
+
 
     @yield('script')
 </body>

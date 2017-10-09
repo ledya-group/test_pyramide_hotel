@@ -50,6 +50,17 @@
             {{--    --}}
         </footer>
 
+        <!-- Global Site Tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107785044-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-107785044-1');
+        </script>
+
+
         <!-- Bootstrap and necessary plugins -->
         <script src="{{ asset('js/libs/jquery.js') }}"></script>
         <script src="{{ asset('js/libs/tether.js') }}"></script>
