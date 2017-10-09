@@ -1,3 +1,4 @@
+<img src="{{asset('images/logo/logo.png')}}">
 <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button">☰</button>
 <a class="navbar-brand" href="#" style="background-image:none">Pyramide Hotel</a>
 <ul class="nav navbar-nav d-md-down-none">

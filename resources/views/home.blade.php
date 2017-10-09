@@ -91,7 +91,7 @@
 				<table class="invoice_head center no_border">
 					<tr>
 						<td class="logo text-left">
-							<img src="logo.png"> <strong>LEDYA PYRAMIDE HOTEL</strong> <br>
+							<img src="{{asset('images/logo/logo.png')}}"> <strong>LEDYA PYRAMIDE HOTEL</strong> <br>
 							 35 Avenue Nguma , Macampagne, Kinshasa <br>
 							 Contacte : +243 820005454 ; 82005464	
 						</td>

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Pyramide-Hotel') }}</title>
+    <title>Pyramide-Hotel</title>
 
     <!-- Icons -->
     <link rel="shortcut icon" href="images/icon/animated_favicon1.gif">
@@ -30,7 +30,7 @@
     <div id="app" class="app header-fixed">
         <header class="app-header navbar">
             <a class="navbar-brand" href="#" style="background-image:none"> 
-                <img src="images/logo/logo.png">Pyramide Hotel
+                <img src="{{asset('images/logo/logo.png')}}">Pyramide Hotel
             </a>
         </header>
 
@@ -47,9 +47,9 @@
         </div>
 
         <footer class="app-footer">
-            <a href="http://coreui.io">CoreUI</a> © 2017 creativeLabs.
+            <a href="#">Ledya Pyramide</a> © 2017
             <span class="float-right">
-                Powered by <a href="http://coreui.io">CoreUI</a>
+                Powered by <a href="http://coreui.io">Daniel and Kevin</a>
             </span>
         </footer>
 
