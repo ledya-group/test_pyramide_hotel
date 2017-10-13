@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
         }
         
 
-        factory(App\Agent::class, 20)->create()->each(function ($agent)
+        factory(App\Agent::class, 1)->create()->each(function ($agent)
         {
             $agent->profile->save(
                 array(
@@ -40,7 +40,8 @@ class UsersTableSeeder extends Seeder
 
             factory(App\User::class)->create([
                 "owner_type" => 'App\Agent',    
-                "owner_id" => $agent->id
+                "owner_id" => $agent->id,
+                "username" => "danielrubango"
             ]);
         });
     }

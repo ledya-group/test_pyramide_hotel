@@ -23,6 +23,8 @@ class ReservationsController extends Controller
             // ->orderBy('created_at')
             ->get();
 
+            // return $reservations;
+
         return view('admin.reservations.index', [
             'reservations' => $reservations
         ]);
