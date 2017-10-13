@@ -64,7 +64,10 @@
 
 		.invoice_table {
 			margin-top: 30px;
-			margin-bottom: 50px;
+      		margin-bottom: 50px;
+      		border-collapse: separate;
+      		border-spacing: 0px;
+      		border-radius: 3px 3px 0px 0px ;
 		}
 
 		.invoice_table .th {
@@ -91,7 +94,7 @@
 				<table class="invoice_head center no_border">
 					<tr>
 						<td class="logo text-left">
-							<img src="logo.png"> <strong>LEDYA PYRAMIDE HOTEL</strong> <br>
+							<img src="{{asset('images/logo/logo.png')}}"> <strong>LEDYA PYRAMIDE HOTEL</strong> <br>
 							 35 Avenue Nguma , Macampagne, Kinshasa <br>
 							 Contacte : +243 820005454 ; 82005464	
 						</td>
