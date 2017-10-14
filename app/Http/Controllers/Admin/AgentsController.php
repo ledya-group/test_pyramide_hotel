@@ -130,8 +130,8 @@ class AgentsController extends Controller
     public function update(Request $request, Agent $agent)
     {
         request()->validate([
-            'password' => 'required',
-            'password_confirmation' => 'required|same:password',
+            'password' => 'required_with:password_confirmation',
+            'password_confirmation' => 'required_with:password|same:password',
         ]);
 
         $profile_data = request()->validate([

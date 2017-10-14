@@ -67,7 +67,7 @@ class Reservation extends Model
 
 	public function setCheckout($value)
 	{
-		$this->attributes['checkin'] =  Carbon::parse($value);
+		$this->attributes['checkout'] =  Carbon::parse($value);
 	}
 
 	public function isNoActive()

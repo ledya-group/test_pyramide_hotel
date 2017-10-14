@@ -18,8 +18,10 @@ class DashboardController extends Controller
     public function index()
     {
         $reservations = \App\Reservation::active()
-            ->orderBy('checkout')
+            // ->orderBy('checkout')
             ->get();
+
+            // return $reservations;
 
         return view('admin.reservations.index', compact('reservations'));
         // return view('admin.dashboard.index', compact('reservations'));

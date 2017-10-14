@@ -8,10 +8,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Pyramide-Hotel') }}</title>
+    <title>Pyramide-Hotel</title>
 
     <!-- Icons -->
-    <link rel="shortcut icon" href="images/icon/animated_favicon1.gif">
+    <link rel="shortcut icon" href="images/icon/icon.ico">
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/simple-line-icons.css') }}" rel="stylesheet">
 
@@ -40,7 +40,7 @@
     <div id="app" class="app header-fixed">
         <header class="app-header navbar">
             <a class="navbar-brand" href="#" style="background-image:none"> 
-                Pyramide Hotel  
+                <img src="{{asset('images/logo/logo.png')}}">Pyramide Hotel
             </a>
         </header>
 
@@ -57,7 +57,10 @@
         </div>
 
         <footer class="app-footer">
-            {{--    --}}
+            <a href="pyramide-hotel.com">Ledya Pyramide</a> © 2017
+            <span class="float-right">
+                Powered by <a href="mailto:pangakevin@gmail.com">Daniel and Kevin</a>
+            </span>
         </footer>
 
         <!-- Bootstrap and necessary plugins -->

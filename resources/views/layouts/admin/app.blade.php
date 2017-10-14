@@ -8,10 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Pyramide Hotel') }}</title>
 
     <!-- Icons -->
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{asset('images/icon/icon.ico')}}"> 
     <link href="{{ asset('css/simple-line-icons.css') }}" rel="stylesheet">
 
     <!-- Main styles for this application -->
@@ -65,9 +66,9 @@
 
         <footer class="app-footer">
             LEDYA GROUP
-            {{--  <a href="http://coreui.io">CoreUI</a> © 2017 creativeLabs.
+            {{--  <a href="#"></a> © 2017 creativeLabs.
             <span class="float-right">
-                Powered by <a href="http://coreui.io">CoreUI</a>
+                Powered by <a href="#">Daniel and Kevin</a>
             </span>  --}}
         </footer>
     </div>
