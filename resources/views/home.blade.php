@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="shortcut icon" href="animated_favicon1.gif">
+	{{--  <link rel="shortcut icon" href="animated_favicon1.gif">  --}}
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
 
@@ -94,7 +94,7 @@
 				<table class="invoice_head center no_border">
 					<tr>
 						<td class="logo text-left">
-							<img src="{{asset('images/logo/logo.png')}}"> <strong>LEDYA PYRAMIDE HOTEL</strong> <br>
+							<img src="{{asset('images/logo/logo.gif')}}"> <strong>LEDYA PYRAMIDE HOTEL</strong> <br>	
 							 35 Avenue Nguma , Macampagne, Kinshasa <br>
 							 Contacte : +243 820005454 ; 82005464	
 						</td>
